@@ -1,6 +1,8 @@
 from conjuntos import procesar_conjuntos, procesar_conjunto_como_texto, procesar_operacion_conjuntos, conjunto_a_es_subconjunto_propio_de_c, conjunto_c_es_conjunto_dominante
 # pruebas
-conjuntos = procesar_conjuntos(3, False)
+lista_dnis = ['35357229', '31081403', '45024397', '35539349']
+
+conjuntos = procesar_conjuntos(lista_dnis)
 
 print("conjuntos:")
 for clave_conjunto in conjuntos.keys():
@@ -37,13 +39,9 @@ for clave_conjunto in diferencia_simetrica_conjuntos.keys():
 
 
 print("Inicio validaciones expresiones lógicas en lenguaje natural:")
-dnis = {'A': [2, 3, 5, 7, 9], 'B': [0, 1, 3, 4, 8],
-        'C': [0, 2, 3, 4, 5, 7, 9], 'D': [3, 4, 5, 9]}
-
-
 print("validacion 1: Mauro (conjunto D), es subconjunto propio de Diego (conjunto C):")
 mauro_es_subconjunto_de_diego = conjunto_a_es_subconjunto_propio_de_c([
-                                                                      dnis['D'], dnis['C']])
+                                                                      conjuntos['D'], conjuntos['C']])
 print("Conjuntos:")
 for clave_conjunto in conjuntos.keys():
     print(
@@ -57,7 +55,7 @@ else:
 print("validacion 2: Diego (conjunto D), es conjunto dominante, respecto de los demás conjuntos:")
 
 diego_es_conjunto_dominante = conjunto_c_es_conjunto_dominante(
-    list(dnis.values()))
+    list(conjuntos.values()))
 print("Conjuntos:")
 for clave_conjunto in conjuntos.keys():
     print(

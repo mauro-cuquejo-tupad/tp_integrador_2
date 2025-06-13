@@ -2,11 +2,9 @@
 # obtener conjuntos
 def procesar_conjuntos(lista_dnis):
     conjunto_dnis = {}
-    lista_dnis = ['35357229', '31081403', '45024397', '35539349']
     nombre_conjunto = 'A'
     for i in range(len(lista_dnis)):
-        dni = input(
-            "Ingrese su numero de dni: ") if pedir_dnis else lista_dnis[i]
+        dni = lista_dnis[i]
         conjunto_numeros_dni = []
         for num in list(dni):
             if num not in conjunto_numeros_dni:
