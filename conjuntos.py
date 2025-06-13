@@ -1,12 +1,10 @@
 
 # obtener conjuntos
-def procesar_conjuntos(cantidad_personas, pedir_dnis):
+def procesar_conjuntos(lista_dnis):
     conjunto_dnis = {}
-    lista_dnis = ['35539349', '31081403', '45024397', '35357229']
     nombre_conjunto = 'A'
-    for i in range(cantidad_personas if pedir_dnis else 4):
-        dni = input(
-            "Ingrese su numero de dni: ") if pedir_dnis else lista_dnis[i]
+    for i in range(len(lista_dnis)):
+        dni = lista_dnis[i]
         conjunto_numeros_dni = []
         for num in list(dni):
             if num not in conjunto_numeros_dni:
@@ -92,3 +90,21 @@ def seleccionar_operacion(operacion, conjuntos):
         return diferencia(conjuntos)
     if operacion == "△":
         return diferencia_simetrica(conjuntos)
+
+
+def conjunto_a_es_subconjunto_propio_de_c(conjuntos):
+    # el conjunto D es subconjunto propio de diego.
+    # Por lo tanto, la intersección de los dos conjuntos, será igual al Conjunto D.
+    # Además, la diferencia entre D - C, será igual al conjunto Vacío.
+    return interseccion(conjuntos) == conjuntos[0] and diferencia(conjuntos) == []
+
+
+def conjunto_c_es_conjunto_dominante(conjuntos):
+    # el conjunto C es conjunto dominante.
+    # Por lo tanto, tiene más elementos que el resto de los conjuntos.
+    diego = conjuntos[2]
+    conjuntos.remove(diego)
+    for conjunto in conjuntos:
+        if len(diego) <= len(conjunto):
+            return False
+    return True
