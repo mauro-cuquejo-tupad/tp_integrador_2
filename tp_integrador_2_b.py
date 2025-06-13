@@ -1,11 +1,12 @@
 from datetime import date
 
-def obtener_años(demo=False):
+
+def obtener_anios(demo=False):
     entradas = set()
-    
+
     if demo:
         return {1991, 2003, 1984, 1989}
-    
+
     while True:
         try:
             adn = input('Ingresá tu año de nacimiento: ')
@@ -17,6 +18,7 @@ def obtener_años(demo=False):
 
     return entradas
 
+
 def pares_impares(adns):
     pares = 0
     for a in adns:
@@ -27,7 +29,7 @@ def pares_impares(adns):
     par_impar = {'par': pares, 'impar': impares}
 
     for clave, valor in par_impar.items():
-        if  valor == 0:
+        if valor == 0:
             print(f'Ningún miembro del grupo nació en año {clave}')
         elif valor == 1:
             print(f'Un miembro del grupo nació en año {clave}')
@@ -35,14 +37,17 @@ def pares_impares(adns):
             print(f'{valor} miembros del grupo nacieron en año {clave}.')
     print()
 
+
 def grupo_z(adns):
     for a in adns:
         if a >= 2000:
             return
     print('Grupo Z\n')
 
+
 def es_bisiesto(adn):
     return adn % 4 == 0 and adn % 100 != 0 or adn % 400 == 0
+
 
 def especial(adns):
     for a in adns:
@@ -50,12 +55,14 @@ def especial(adns):
             return True
     return False
 
+
 def producto_cartesiano(conjuntoA, conjuntoB):
     pc = set()
     for a in conjuntoA:
         for b in conjuntoB:
             pc.add(f'({a},{b})')
-    return pc            
+    return pc
+
 
 def generar_edades(adns):
     edades = set()
@@ -63,19 +70,22 @@ def generar_edades(adns):
         edades.add(date.today().year - a)
     return edades
 
+
 if __name__ == '__main__':
     demo = True
-    
-    adns = obtener_años(demo)
+
+    adns = obtener_anios(demo)
 
     print(f'\nConjunto de años = {adns}\n')
-    
+
     pares_impares(adns)
 
     grupo_z(adns)
 
     if especial(adns):
-        print('Tenemos un año espcecial.\n')
+        print('Tenemos un año especial.\n')
 
     print('Producto cartesiano de años y edades:')
-    print(producto_cartesiano(adns, generar_edades(adns)))
+    producto_cartesiano = producto_cartesiano(adns, generar_edades(adns))
+    for elemento in sorted(producto_cartesiano):
+        print(elemento)
