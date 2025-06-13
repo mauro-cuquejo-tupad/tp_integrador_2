@@ -86,6 +86,4 @@ if __name__ == '__main__':
         print('Tenemos un año especial.\n')
 
     print('Producto cartesiano de años y edades:')
-    producto_cartesiano = producto_cartesiano(adns, generar_edades(adns))
-    for elemento in sorted(producto_cartesiano):
-        print(elemento)
+    print(producto_cartesiano(adns, generar_edades(adns)))
