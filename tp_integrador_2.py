@@ -79,7 +79,7 @@ def procesar_operacion_conjuntos(operacion: str, conjuntos: dict[str, list]) -> 
     if cantidad_dnis == 0:
         return {"∅", []}
     if cantidad_dnis == 1:
-        return {"A " + operacion + " A": conjuntos.values()}
+        return {"A " + operacion + " A": seleccionar_operacion(operacion, [conjuntos["A"], conjuntos["A"]])}
     # si solo hay dos dni, se hace la union entre ambos
     if cantidad_dnis == 2:
         return {"A " + operacion + " B": seleccionar_operacion(operacion, [conjuntos["A"], conjuntos["B"]])}
