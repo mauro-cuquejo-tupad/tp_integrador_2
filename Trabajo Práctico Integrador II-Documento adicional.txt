@@ -1,0 +1,49 @@
+Trabajo Práctico Integrador II
+Matemáticas y Programación
+
+
+Tecnicatura Universitaria en Programación 
+Universidad Tecnológica Nacional
+
+
+Alumnos – Comisión M2025-12
+Cornejo, Diego
+Cuquejo, Mauro
+Dantur, Daniel
+Díaz de Quintana, Melisa
+-----------------------------------------------
+
+La distribución del trabajo fue equitativa. Cada integrante desarrolló tanto una parte de los códigos implementados en Python (los que precisamente describimos cada uno en los videos) y parte del informe.
+
+-----------------------------------------------
+
+Expresiones lógicas en lenguaje natural:
+
+1.	“Si todos los elementos de un conjunto pertenecen a otro conjunto que no es igual, entonces el primer conjunto es un subconjunto propio del segundo”
+
+
+Implementación en Python: 
+La validación consiste en que la intersección de dos conjuntos es equivalente al segundo conjunto. 
+C = {0,2,3,4,5,7,9}		D = {3,4,5,9}
+C ∩ D = {3,4,5,9} es igual al conjunto D.
+
+Otra forma de validarlo, es utilizando la diferencia de conjuntos. Si al conjunto D le resto el conjunto C da como resultado un conjunto vacío.
+D - C = {}
+
+
+
+2.	“Si un conjunto contiene más elementos que todos los demás, entonces se lo considera conjunto dominante”
+
+
+Implementación en Python: 
+Comparamos la cantidad de elementos del conjunto C de forma iterativa contra el resto de los conjuntos, y verificamos que se cumple que el conjunto C tiene mayor cantidad de elementos que los conjuntos A, B y D.
+
+A = {2,3,5,7,9} tiene cinco elementos       B = {0,1,3,4,8} tiene cinco elementos
+C = {0,2,3,4,5,7,9} tiene siete elementos    D = {3,4,5,9} tiene cuatro elementos
+
+El conjunto C es el conjunto dominante.
+
+-----------------------------------------------
+
+Link YouTube:https://youtu.be/EhmHd7qDBYQ 
+
