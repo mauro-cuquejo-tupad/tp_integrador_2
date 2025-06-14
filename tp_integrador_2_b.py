@@ -49,6 +49,13 @@ def es_bisiesto(adn):
     return adn % 4 == 0 and adn % 100 != 0 or adn % 400 == 0
 
 
+def calcular_anios_bisiestos(adns):
+    mapa_anios = {}
+    for a in adns:
+        mapa_anios[a] = "Es bisiesto" if es_bisiesto(a) else "No es bisiesto"
+    return mapa_anios
+
+
 def especial(adns):
     for a in adns:
         if es_bisiesto(a):
@@ -74,16 +81,34 @@ def generar_edades(adns):
 if __name__ == '__main__':
     demo = True
 
+    print('*' * 100)
+    print("1) Ingreso de los años de nacimiento (Si dos o mas integrantes del grupo tienen el mismo año, ingresar algún dato ficticio, según el caso).")
     adns = obtener_anios(demo)
 
     print(f'\nConjunto de años = {adns}\n')
 
+    print('*' * 100)
+    print("2) Contar cuántos nacieron en años pares e impares utilizando estructuras repetitivas.")
     pares_impares(adns)
 
+    print('*' * 100)
+    print("3) Si todos nacieron después del 2000, mostrar 'Grupo Z'")
     grupo_z(adns)
 
+    print('*' * 100)
+    print("4) Si alguno nació en año bisiesto, mostrar 'Tenemos un año especial'.")
     if especial(adns):
         print('Tenemos un año especial.\n')
+    else:
+        print('NO Tenemos un año especial.\n')
 
+    print("5) Implementar una función para determinar si un año es bisiesto.")
+    anios_bisiestos = calcular_anios_bisiestos(adns)
+    for clave, valor in anios_bisiestos.items():
+        print(f"{clave}: {valor}")
+
+    print('*' * 100)
+    print("6) Calcular el producto cartesiano entre el conjunto de años y el conjunto de edades actuales.")
     print('Producto cartesiano de años y edades:')
     print(producto_cartesiano(adns, generar_edades(adns)))
+    print('*' * 100)
